@@ -43,7 +43,7 @@ export default {
     }
   },
   mounted () {
-    this.$axios.get('/data/articleList.json').then(rst => {
+    this.$axios.get('http://zclzone.com/sang-cheung-nuxt/data/articleList.json').then(rst => {
       if (rst.status === 200) {
         this.articleList = rst.data.list;
       }

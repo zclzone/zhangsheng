@@ -1,16 +1,12 @@
 const routerBase =
   process.env.DEPLOY_ENV === 'GH_PAGES'
     ? {
-        router: {
-          base: '/sang-cheung-nuxt/'
-        }
+        base: '/sang-cheung-nuxt/'
       }
     : {};
 module.exports = {
   mode: 'spa',
-  router: {
-    base: '/sang-cheung-nuxt/'
-  },
+  router: routerBase,
   /*
    ** Headers of the page
    */
