@@ -1,8 +1,17 @@
+const pkg = require('./package');
+
+const routerBase =
+  process.env.DEPLOY_ENV === 'GH_PAGES'
+    ? {
+        router: {
+          base: '/sang-cheung-nuxt/'
+        }
+      }
+    : {};
+
 module.exports = {
-  mode: 'spa',
-  router: {
-    base: process.env.NODE_ENV === 'GH_PAGES' ? '/sang-cheung-nuxt/' : ''
-  },
+  mode: 'universal',
+  routerBase,
   /*
    ** Headers of the page
    */
