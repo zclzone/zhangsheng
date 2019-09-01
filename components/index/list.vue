@@ -86,7 +86,7 @@ export default {
     cursor: pointer;
     border-radius: 10px;
     padding: 0 15px;
-    transition: 0.8s;
+    transition: 0.4s;
     &:hover {
       transform: scale(1.005);
       box-shadow: 2px 2px 8px rgba(125, 71, 33, 0.4);

@@ -8,21 +8,14 @@
 
 <script>
 export default {
-  data () {
+  async asyncData (app) {
+    const rst = await app.$axios.get('http://zclzone.com/sang-cheung-nuxt/data/articles.json');
     return {
-      article: ''
+      article: rst.data.articles.find((item) => {
+        return item.id == app.params.id
+      }).content || ''
     }
-  },
-  mounted () {
-    this.$axios.get('http://zclzone.com/sang-cheung-nuxt/data/articles.json').then(rst => {
-      if (rst.status === 200) {
-        let articles = rst.data.articles;
-        this.article = articles.find((item) => {
-          return item.id == this.$route.params.id
-        }).content || '';
-      }
-    })
-  },
+  }
 }
 </script>
 

@@ -16,13 +16,6 @@ export default {
   components: {
     List,
     Personal
-  },
-  watch: {
-    '$route': function (to, from) {
-      //路由切换时让页面回到最顶部
-      document.body.scrollTop = 0
-      document.documentElement.scrollTop = 0
-    }
   }
 }
 </script>
