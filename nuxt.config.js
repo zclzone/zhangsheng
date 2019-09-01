@@ -9,7 +9,9 @@ const routerBase =
 
 module.exports = {
   mode: 'universal',
-  routerBase,
+  router: {
+    base: '/sang-cheung-nuxt/'
+  },
   /*
    ** Headers of the page
    */
