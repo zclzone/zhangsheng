@@ -2,7 +2,7 @@ const routerBase =
   process.env.DEPLOY_ENV === 'GH_PAGES'
     ? {
         router: {
-          base: '/sang-cheung-nuxt/'
+          base: '/zhangsheng/'
         }
       }
     : {};
@@ -10,7 +10,7 @@ const routerBase =
 module.exports = {
   mode: 'universal',
   router: {
-    base: '/sang-cheung-nuxt/'
+    base: '/zhangsheng/'
   },
   /*
    ** Headers of the page
