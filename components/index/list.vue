@@ -1,18 +1,18 @@
 <template>
   <div class="list">
     <div class="list-title"
-      v-if="articleList.filter(value=> $store.state.articleType ? value.type == $store.state.articleType : true).length > 0">
+         v-if="articleList.filter(value=> $store.state.articleType ? value.type == $store.state.articleType : true).length > 0">
       文章列表
     </div>
-    <el-divider
-      v-else-if="$store.state.articleType != '' && articleList.filter(value=> $store.state.articleType ? value.type == $store.state.articleType : true).length === 0">
+    <el-divider v-else-if="$store.state.articleType != '' && articleList.filter(value=> $store.state.articleType ? value.type == $store.state.articleType : true).length === 0">
       暂无 <span style="color:#895022;font-weight:600;">{{$store.state.articleType}}</span> 类文章
     </el-divider>
     <div class="article-item"
-      v-for="item in articleList.filter(value=> $store.state.articleType ? value.type == $store.state.articleType : true)"
-      :key="item.id">
+         v-for="item in articleList.filter(value=> $store.state.articleType ? value.type == $store.state.articleType : true)"
+         :key="item.id">
       <div class="logo">
-        <img src="@/assets/img/logo_css.png" alt="">
+        <img src="@/assets/img/logo_css.png"
+             alt="">
       </div>
       <div class="info">
         <nuxt-link :to="`/article/${item.id}`">
@@ -43,7 +43,7 @@ export default {
     }
   },
   mounted () {
-    this.$axios.get('http://zclzone.com/sang-cheung-nuxt/data/articleList.json').then(rst => {
+    this.$axios.get('http://zclzone.com/zhangsheng/data/articleList.json').then(rst => {
       if (rst.status === 200) {
         this.articleList = rst.data.list;
       }

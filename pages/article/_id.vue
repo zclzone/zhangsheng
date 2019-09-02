@@ -1,7 +1,8 @@
 <template>
   <div class="article">
     <div class="article-container">
-      <div class="markdown-body" v-html="article"></div>
+      <div class="markdown-body"
+           v-html="article"></div>
     </div>
   </div>
 </template>
@@ -9,7 +10,7 @@
 <script>
 export default {
   async asyncData (app) {
-    const rst = await app.$axios.get('http://zclzone.com/sang-cheung-nuxt/data/articles.json');
+    const rst = await app.$axios.get('http://zclzone.com/zhangsheng/data/articles.json');
     return {
       article: rst.data.articles.find((item) => {
         return item.id == app.params.id
