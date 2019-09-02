@@ -10,7 +10,7 @@
 module.exports = {
   mode: 'universal',
   router: {
-    base: './'
+    base: process.env.NODE_ENV === 'development' ? '' : '/zhangsheng/'
   },
   /*
    ** Headers of the page
