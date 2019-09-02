@@ -9,13 +9,16 @@
 
 <script>
 export default {
-  async asyncData (app) {
-    const rst = await app.$axios.get('http://zclzone.com/zhangsheng/data/articles.json');
+  data () {
     return {
-      article: rst.data.articles.find((item) => {
-        return item.id == app.params.id
-      }).content || ''
+      article: ''
     }
+  },
+  async created () {
+    const rst = await this.$axios.get('http://zclzone.com/zhangsheng/data/articles.json');
+    this.article = rst.data.articles.find((item) => {
+      return item.id == this.$route.params.id;
+    }).content || '';
   }
 }
 </script>
