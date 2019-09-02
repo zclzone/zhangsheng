@@ -1,11 +1,11 @@
-const routerBase =
-  process.env.DEPLOY_ENV === 'GH_PAGES'
-    ? {
-        router: {
-          base: '/zhangsheng/'
-        }
-      }
-    : {};
+// const routerBase =
+//   process.env.DEPLOY_ENV === 'GH_PAGES'
+//     ? {
+//         router: {
+//           base: '/zhangsheng/'
+//         }
+//       }
+//     : {};
 
 module.exports = {
   mode: 'universal',
@@ -68,6 +68,6 @@ module.exports = {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {}
+    extend (config, ctx) { }
   }
 };
