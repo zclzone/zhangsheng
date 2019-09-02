@@ -1,9 +1,11 @@
 <template>
-  <el-row :gutter="0" class="content">
+  <el-row :gutter="0"
+          class="content">
     <el-col :span="18">
-      <List />
+      <List :articleList="articleList" />
     </el-col>
-    <el-col :span="6" class="personal">
+    <el-col :span="6"
+            class="personal">
       <Personal />
     </el-col>
   </el-row>
@@ -13,6 +15,12 @@
 import List from '@/components/index/list';
 import Personal from '@/components/index/personal';
 export default {
+  async asyncData (app) {
+    const rst = await app.$axios.get('http://zclzone.com/zhangsheng/data/articleList.json');
+    return {
+      articleList: rst.data.list
+    }
+  },
   components: {
     List,
     Personal

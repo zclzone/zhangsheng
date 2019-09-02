@@ -37,18 +37,12 @@
 
 <script>
 export default {
-  data () {
-    return {
-      articleList: []
+  props: {
+    articleList: {
+      type: Array,
+      default: []
     }
-  },
-  mounted () {
-    this.$axios.get('http://zclzone.com/zhangsheng/data/articleList.json').then(rst => {
-      if (rst.status === 200) {
-        this.articleList = rst.data.list;
-      }
-    })
-  },
+  }
 }
 </script>
 
