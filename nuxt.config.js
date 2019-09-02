@@ -10,7 +10,7 @@
 module.exports = {
   mode: 'universal',
   router: {
-    base: process.env.NODE_ENV === 'development' ? '' : '/zhangsheng/'
+    base: './'
   },
   /*
    ** Headers of the page
@@ -26,7 +26,7 @@ module.exports = {
         content: process.env.npm_package_description || ''
       }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: './favicon.ico' }]
   },
   /*
    ** Customize the progress-bar color
