@@ -6,11 +6,23 @@
 //         }
 //       }
 //     : {};
+const axios = require('axios');
 
 module.exports = {
   mode: 'universal',
   router: {
     base: process.env.NODE_ENV === 'development' ? '' : '/zhangsheng/'
+  },
+  generate: {
+    routes: function() {
+      return axios
+        .get('http://zclzone.com/zhangsheng/data/articles.json')
+        .then(res => {
+          return res.data.articles.map(article => {
+            return '/article/' + article.id;
+          });
+        });
+    }
   },
   /*
    ** Headers of the page
@@ -26,7 +38,15 @@ module.exports = {
         content: process.env.npm_package_description || ''
       }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/zhangsheng/favicon.ico' }]
+    link: [
+      {
+        rel: 'icon',
+        type: 'image/x-icon',
+        href: `${
+          process.env.NODE_ENV === 'development' ? '' : '/zhangsheng'
+        }/favicon.ico`
+      }
+    ]
   },
   /*
    ** Customize the progress-bar color
@@ -59,7 +79,12 @@ module.exports = {
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
-  axios: {},
+  axios: {
+    baseURL:
+      process.env.NODE_ENV === 'development'
+        ? 'http://localhost:3000'
+        : 'http://zclzone.com/zhangsheng'
+  },
   /*
    ** Build configuration
    */
@@ -68,6 +93,6 @@ module.exports = {
     /*
      ** You can extend webpack config here
      */
-    extend (config, ctx) { }
+    extend(config, ctx) {}
   }
 };

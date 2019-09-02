@@ -1,8 +1,7 @@
 <template>
   <div class="article">
     <div class="article-container">
-      <div class="markdown-body"
-           v-html="article"></div>
+      <div class="markdown-body" v-html="article"></div>
     </div>
   </div>
 </template>
@@ -15,7 +14,7 @@ export default {
     }
   },
   created () {
-    this.$axios.get('http://zclzone.com/zhangsheng/data/articles.json').then(rst => {
+    this.$axios.get('/data/articles.json').then(rst => {
       this.article = rst.data.articles.find((item) => {
         return item.id == this.$route.params.id;
       }).content || '';
