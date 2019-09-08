@@ -25,9 +25,9 @@ export default {
   data () {
     return {
       topMenu: [
-        { name: "首页", type: 'Home' },
-        { name: "技术", type: 'Tech' },
-        { name: "生活", type: 'Life' }
+        // { name: "首页", type: 'Home' },
+        // { name: "技术", type: 'Tech' },
+        // { name: "生活", type: 'Life' }
       ],
       curTopMenu: 'Home'
     }

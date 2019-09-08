@@ -1,0 +1,20 @@
+.el-header,
+.el-main,
+.el-footer,
+.search-box {
+  width: 100%;
+  min-width: 1300px;
+  margin: 0 auto;
+  padding: 0;
+  background: #fff;
+}
+.el-header {
+  font-size: 14px;
+  color: #b0b0b0;
+  background: #4c545b;
+}
+.el-main {
+  background: rgba(243, 242, 243, 0.5);
+  min-height: 90vh;
+  padding: 20px;
+}

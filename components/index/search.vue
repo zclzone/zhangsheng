@@ -1,9 +1,9 @@
 <template>
   <el-row :gutter="0" class="search">
     <el-col :span="4">
-      <router-link to="/" class="logo">
+      <div class="logo" @click="toHome">
         <img src="@/assets/logo.png" alt="">
-      </router-link>
+      </div>
     </el-col>
     <el-col :span="12" @mouseleave.native="selected = ''" class="tab">
       <ul :class="{'menu':true,'over': selected}">
@@ -72,6 +72,10 @@ export default {
       type = type || '';
       this.$store.dispatch('change_type', type.toUpperCase());
       this.selected = '';
+    },
+    toHome () {
+      this.$store.dispatch('change_type', '');
+      this.$router.push('/');
     }
   }
 }
@@ -93,6 +97,7 @@ export default {
   margin: 30px auto;
   .logo {
     width: 150px;
+    cursor: pointer;
     display: block;
     img {
       width: 150px;
