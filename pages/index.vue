@@ -1,7 +1,7 @@
 <template>
   <el-row :gutter="0" class="content">
     <el-col :span="18">
-      <List :articleList="articles" />
+      <List :articles="articles" />
     </el-col>
     <el-col :span="6" class="personal">
       <Personal />

@@ -16,7 +16,7 @@ export default {
   created () {
     this.$axios.get('/data/articles.json').then(rst => {
       this.article = rst.data.articles.find((item) => {
-        return item._id == this.$route.params.id;
+        return item._id == this.$route.query.id;
       }).content_html || '';
     })
   }

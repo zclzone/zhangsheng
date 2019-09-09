@@ -6,24 +6,22 @@
 //         }
 //       }
 //     : {};
-const axios = require('axios');
+// const axios = require('axios');
 
 module.exports = {
   mode: 'universal',
   router: {
     base: process.env.NODE_ENV === 'development' ? '' : '/zhangsheng/'
   },
-  generate: {
-    routes: function() {
-      return axios
-        .get('http://zclzone.com/zhangsheng/data/articles.json')
-        .then(res => {
-          return res.data.articles.map(article => {
-            return '/article/' + article._id;
-          });
-        });
-    }
-  },
+  // generate: {
+  //   routes: function() {
+  //     return axios.get('/data/articles.json').then(res => {
+  //       return res.data.articles.map(article => {
+  //         return '/article/' + article._id;
+  //       });
+  //     });
+  //   }
+  // },
   /*
    ** Headers of the page
    */
