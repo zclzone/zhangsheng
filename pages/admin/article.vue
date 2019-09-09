@@ -4,7 +4,7 @@
       <nuxt-link to='/admin'>
         <el-button type="info" icon="el-icon-close" plain>退出</el-button>
       </nuxt-link>
-      <el-button type="primary" icon="el-icon-finished" plain @click="saveArticle">保存</el-button>
+      <el-button type="primary" icon="el-icon-finished" plain @click="save">保存</el-button>
     </div>
     <el-form :model="article" :rules="rules" ref="articleForm" label-width="100px" label-position="left"
       class="demo-ruleForm">
@@ -99,9 +99,6 @@ export default {
         }
 
       });
-    },
-    saveArticle () {
-      this.save('', this.$refs.articleForm.d_render);
     }
   },
   mounted () {
