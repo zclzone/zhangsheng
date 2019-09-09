@@ -19,7 +19,7 @@ module.exports = {
         .get('http://zclzone.com/zhangsheng/data/articles.json')
         .then(res => {
           return res.data.articles.map(article => {
-            return '/article/' + article.id;
+            return '/article/' + article._id;
           });
         });
     }

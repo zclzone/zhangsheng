@@ -38,7 +38,7 @@
 <script>
 export default {
   props: {
-    articleList: {
+    articles: {
       type: Array,
       default: []
     }

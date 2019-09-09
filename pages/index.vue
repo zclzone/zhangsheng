@@ -1,7 +1,7 @@
 <template>
   <el-row :gutter="0" class="content">
     <el-col :span="18">
-      <List :articleList="articleList" />
+      <List :articleList="articles" />
     </el-col>
     <el-col :span="6" class="personal">
       <Personal />
@@ -16,7 +16,7 @@ export default {
   async asyncData (app) {
     const rst = await app.$axios.get('/data/articles.json');
     return {
-      articleList: rst.data.articles
+      articles: rst.data.articles
     }
   },
   components: {
