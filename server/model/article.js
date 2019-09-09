@@ -25,6 +25,9 @@ let articleSchema = new Schema({
   },
   content_html: {
     type: String
+  },
+  date: {
+    type: Date
   }
 });
 

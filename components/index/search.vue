@@ -38,7 +38,7 @@ export default {
       menus: ['前端', '后端', 'DB', '工具'],
       mains: [
         {          menu: '前端', childMenu: [
-            { menu: 'Js', img: require('@/assets/img/logo_js.png') },
+            { menu: 'Javascript', img: require('@/assets/img/logo_js.png') },
             { menu: 'Css', img: require('@/assets/img/logo_css.png') },
             { menu: 'Html', img: require('@/assets/img/logo_html.png') },
             { menu: 'Vue', img: require('@/assets/img/logo_vue.png') }
@@ -70,7 +70,7 @@ export default {
     },
     changeType (type) {
       type = type || '';
-      this.$store.dispatch('change_type', type.toUpperCase());
+      this.$store.dispatch('change_type', type);
       this.selected = '';
     },
     toHome () {

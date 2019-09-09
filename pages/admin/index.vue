@@ -1,19 +1,20 @@
 <template>
   <div>
     <div class="btns">
-      <nuxt-link to='/admin/article?action=add'>
+      <nuxt-link to='/admin/article'>
         <el-button type="success" icon="el-icon-plus" plain>新增</el-button>
       </nuxt-link>
       <el-button type="primary" icon="el-icon-edit" plain @click="editArticle" v-show="currentId">编辑</el-button>
       <el-button type="danger" icon="el-icon-delete" plain @click="deleteArticle" v-show="currentId">删除</el-button>
       <el-button @click="refresh" type="info" icon="el-icon-refresh" plain>刷新</el-button>
+      <el-button @click="publish" type="info" icon="el-icon-loading" plain>发布</el-button>
     </div>
     <el-table ref="singleTable" :data="articleList" highlight-current-row @current-change="handleCurrentChange"
       style="width: 100%">
       <el-table-column type="index" width="100" label="序号"></el-table-column>
-      <el-table-column property="title" label="标题" width="300"></el-table-column>
+      <el-table-column property="title" label="标题" width="220"></el-table-column>
       <el-table-column property="type" label="类型" width="150"></el-table-column>
-      <el-table-column property="introduce" label="简介" width="500"></el-table-column>
+      <el-table-column property="introduce" label="简介" width="600"></el-table-column>
       <el-table-column property="date" label="发布日期"></el-table-column>
     </el-table>
   </div>
@@ -31,7 +32,7 @@ export default {
     }
   },
   created () {
-    this.$axios.get('/data/articleList.json').then(rst => {
+    this.$axios.get(`http://localhost:3000/article/getArticles`).then(rst => {
       this.articleList = rst.data.list;
     })
   },
@@ -42,14 +43,14 @@ export default {
     handleCurrentChange (val) {
       this.currentRow = val;
       if (val) {
-        this.currentId = val.id;
+        this.currentId = val._id;
       } else {
         this.currentId = ''
       }
     },
     editArticle () {
       if (this.currentId) {
-        this.$router.push(`/admin/article/?id=${this.currentId}&action=edit`);
+        this.$router.push(`/admin/article/?id=${this.currentId}`);
       }
     },
     deleteArticle () {
@@ -72,11 +73,28 @@ export default {
       }
     },
     refresh () {
-      this.$refs.singleTable.setCurrentRow();
-      this.$message({
-        type: 'success',
-        message: '刷新成功'
-      });
+      this.$axios.get(`http://localhost:3000/article/getArticles`).then(rst => {
+        if (rst.status === 200) {
+          this.articleList = rst.data.list;
+          this.$refs.singleTable.setCurrentRow();
+          this.$message({
+            type: 'success',
+            message: '刷新成功'
+          });
+        }
+      })
+    },
+    publish () {
+      this.$axios.get(`http://localhost:3000/article/publish`).then(rst => {
+        if (rst.status === 200) {
+          this.$refs.singleTable.setCurrentRow();
+          this.$message({
+            type: 'success',
+            message: rst.data.msg
+          });
+        }
+      })
+
     }
   }
 }

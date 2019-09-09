@@ -7,19 +7,23 @@
     </el-header>
     <el-container>
       <el-aside width="200px">
-        <el-menu default-active="2-1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose">
+        <el-menu default-active="1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose">
           <el-menu-item index="1">
+            <i class="el-icon-setting"></i>
+            <span slot="title">文章操作管理</span>
+          </el-menu-item>
+          <el-menu-item index="2">
             <i class="el-icon-menu"></i>
             <span slot="title">文章类型管理</span>
           </el-menu-item>
-          <el-submenu index="2">
+          <!-- <el-submenu index="2">
             <template slot="title">
               <i class="el-icon-setting"></i>
-              <span>文章操作管理</span>
+              <span>文章管理</span>
             </template>
             <el-menu-item index="2-1">CRUD</el-menu-item>
             <el-menu-item index="2-2">发布</el-menu-item>
-          </el-submenu>
+          </el-submenu> -->
         </el-menu>
       </el-aside>
       <el-main>

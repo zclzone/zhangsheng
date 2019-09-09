@@ -14,9 +14,9 @@ import List from '@/components/index/list';
 import Personal from '@/components/index/personal';
 export default {
   async asyncData (app) {
-    const rst = await app.$axios.get('/data/articleList.json');
+    const rst = await app.$axios.get('/data/articles.json');
     return {
-      articleList: rst.data.list
+      articleList: rst.data.articles
     }
   },
   components: {

@@ -1,8 +1,10 @@
 <template>
   <div>
     <div class="btns">
-      <el-button type="info" icon="el-icon-close" plain>退出</el-button>
-      <el-button type="primary" icon="el-icon-finished" plain>保存</el-button>
+      <nuxt-link to='/admin'>
+        <el-button type="info" icon="el-icon-close" plain>退出</el-button>
+      </nuxt-link>
+      <el-button type="primary" icon="el-icon-finished" plain @click="saveArticle">保存</el-button>
     </div>
     <el-form :model="article" :rules="rules" ref="articleForm" label-width="100px" label-position="left"
       class="demo-ruleForm">
@@ -15,7 +17,7 @@
         <el-col :span="4" :offset="1">
           <el-form-item label="类型" prop="type">
             <el-select v-model="article.type" placeholder="请选择文章类型">
-              <el-option label="Css" value="CSS"></el-option>
+              <el-option label="Css" value="Css"></el-option>
               <el-option label="Javascript" value="Javascript"></el-option>
             </el-select>
           </el-form-item>
@@ -32,18 +34,19 @@
 </template>
 
 <script>
-import qs from 'qs'
 export default {
   layout: 'admin',
   data () {
     return {
+      id: '',
       article: {
-        id: '',
+        _id: '',
         title: '',
         type: '',
         introduce: '',
         content_md: '',
-        content_html: ''
+        content_html: '',
+        date: null
       },
       rules: {
         title: [
@@ -62,6 +65,7 @@ export default {
   },
   methods: {
     save (value, render) {
+      console.log(this.$refs.articleForm.d_render);
       this.$refs.articleForm.validate((valid) => {
         if (valid) {
           this.$confirm('确定保存?', '提示', {
@@ -70,7 +74,8 @@ export default {
             type: 'warning'
           }).then(() => {
             this.article.content_html = render;
-            this.$axios.post('/article/add', qs.stringify(this.article)).then(rst => {
+            this.article.date = Date();
+            this.$axios.post('http://localhost:3000/article/add', this.article).then(rst => {
               if (rst.status == 200) {
                 this.$message({
                   type: 'success',
@@ -94,10 +99,20 @@ export default {
         }
 
       });
+    },
+    saveArticle () {
+      this.save('', this.$refs.articleForm.d_render);
     }
   },
   mounted () {
-    console.log(this.$route.query.action);
+    this.id = this.$route.query.id || ''
+    if (this.id) {
+      this.$axios.get(`http://localhost:3000/article/getArticle?id=${this.id}`).then(rst => {
+        if (rst.status === 200) {
+          this.article = rst.data.article;
+        }
+      })
+    }
   }
 }
 </script>

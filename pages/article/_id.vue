@@ -16,8 +16,8 @@ export default {
   created () {
     this.$axios.get('/data/articles.json').then(rst => {
       this.article = rst.data.articles.find((item) => {
-        return item.id == this.$route.params.id;
-      }).content || '';
+        return item._id == this.$route.params.id;
+      }).content_html || '';
     })
   }
 }
