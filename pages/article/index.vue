@@ -1,7 +1,7 @@
 <template>
   <div class="article">
     <div class="article-container">
-      <div class="markdown-body" v-html="article"></div>
+      <div class="markdown-body" v-html="article.content_html"></div>
     </div>
   </div>
 </template>
@@ -10,14 +10,14 @@
 export default {
   data () {
     return {
-      article: ''
+      article: {}
     }
   },
   created () {
     this.$axios.get('/data/articles.json').then(rst => {
       this.article = rst.data.articles.find((item) => {
         return item._id == this.$route.query.id;
-      }).content_html || '';
+      });
     })
   }
 }
