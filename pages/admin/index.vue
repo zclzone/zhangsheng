@@ -15,7 +15,11 @@
       <el-table-column property="title" label="标题" width="220"></el-table-column>
       <el-table-column property="type" label="类型" width="150"></el-table-column>
       <el-table-column property="introduce" label="简介" width="600"></el-table-column>
-      <el-table-column property="date" label="发布日期"></el-table-column>
+      <el-table-column property="date" label="发布日期">
+        <template slot-scope="scope">
+          {{scope.row.date | dateFormat}}
+        </template>
+      </el-table-column>
     </el-table>
   </div>
 </template>

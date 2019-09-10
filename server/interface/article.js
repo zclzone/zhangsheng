@@ -3,6 +3,7 @@ const router = express.Router();
 const article = require('../model/article');
 const fs = require('fs');
 const path = require('path');
+const moment = require('moment');
 
 let dataPath = path.join(__dirname, '../../static/data/');
 
@@ -25,7 +26,11 @@ router.get('/getArticle', function(req, res) {
 
 router.post('/add', function(req, res) {
   let articleReq = req.body;
-  console.log(articleReq);
+  const date = new Date();
+  articleReq.date = date;
+  //解决时区问题
+  // date.setMinutes(date.getMinutes() - date.getTimezoneOffset());
+  // articleReq.date = date.toISOString();
   if (articleReq._id) {
     article.findOneAndUpdate({ _id: articleReq._id }, articleReq, function(
       err

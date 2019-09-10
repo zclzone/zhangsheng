@@ -45,8 +45,7 @@ export default {
         type: '',
         introduce: '',
         content_md: '',
-        content_html: '',
-        date: null
+        content_html: ''
       },
       rules: {
         title: [
@@ -65,7 +64,6 @@ export default {
   },
   methods: {
     save (value, render) {
-      console.log(this.$refs.articleForm.d_render);
       this.$refs.articleForm.validate((valid) => {
         if (valid) {
           this.$confirm('确定保存?', '提示', {
@@ -74,7 +72,6 @@ export default {
             type: 'warning'
           }).then(() => {
             this.article.content_html = render;
-            this.article.date = Date();
             this.$axios.post('http://localhost:3000/article/add', this.article).then(rst => {
               if (rst.status == 200) {
                 this.$message({

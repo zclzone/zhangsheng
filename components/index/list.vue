@@ -22,7 +22,7 @@
           </div>
           <p class="introduce">{{item.introduce}}</p>
           <div class="status">
-            <span class="date">{{item.date}}</span>
+            <span class="date">{{item.date | dateFormat}}</span>
             <span>阅读量: {{item.clickCount}}</span>
           </div>
           <div class="type">

@@ -64,6 +64,7 @@ module.exports = {
    */
   plugins: [
     '@/plugins/element-ui',
+    '@/plugins/filter',
     {
       src: '@/plugins/mavon-editor',
       ssr: false
