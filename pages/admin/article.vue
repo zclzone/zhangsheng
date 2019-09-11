@@ -71,13 +71,14 @@ export default {
             cancelButtonText: '取消',
             type: 'warning'
           }).then(() => {
-            this.article.content_html = render;
+            this.article.content_html = this.$refs.md.d_render;
             this.$axios.post('http://localhost:3000/article/add', this.article).then(rst => {
               if (rst.status == 200) {
                 this.$message({
                   type: 'success',
                   message: rst.data.msg
                 });
+                this.$router.push('/admin');
               } else {
                 this.$message({
                   type: 'warning',

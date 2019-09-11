@@ -12,7 +12,7 @@
       v-for="item in articles.filter(value=> $store.state.articleType ? value.type == $store.state.articleType : true)"
       :key="item.id">
       <div class="logo">
-        <img src="@/assets/img/logo_css.png" alt="">
+        <img :src="item.img" alt="">
       </div>
       <div class="info">
         <nuxt-link :to="`/article?id=${item._id}`">
