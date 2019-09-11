@@ -1,14 +1,23 @@
 import Vue from 'vue';
 
+function formatNumber(n) {
+  const str = n.toString();
+  return str[1] ? str : `0${str}`;
+}
+
 Vue.filter('dateFormat', time => {
-  let date = new Date(time);
-  let year = date.getFullYear();
-  let month = date.getMonth() + 1;
-  let day = date.getDate();
-  let hour = date.getHours();
-  let minute = date.getMinutes();
-  let second = date.getSeconds();
-  return (
-    year + '-' + month + '-' + day + ' ' + hour + ':' + minute + ':' + second
-  );
+  const date = new Date(time);
+
+  const year = date.getFullYear();
+  const month = date.getMonth() + 1;
+  const day = date.getDate();
+
+  const hour = date.getHours();
+  const minute = date.getMinutes();
+  const second = date.getSeconds();
+
+  const t1 = [year, month, day].map(formatNumber).join('-');
+  const t2 = [hour, minute, second].map(formatNumber).join(':');
+
+  return `${t1} ${t2}`;
 });

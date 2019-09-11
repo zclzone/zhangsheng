@@ -71,6 +71,7 @@ export default {
     changeType (type) {
       type = type || '';
       this.$store.dispatch('change_type', type);
+      this.$router.push('/');
       this.selected = '';
     },
     toHome () {
