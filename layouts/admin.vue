@@ -46,7 +46,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scope>
+<style lang="scss" scoped>
 .el-header {
   .logo {
     margin-left: 50px;
@@ -64,6 +64,7 @@ export default {
   }
 }
 .el-main {
+  min-width: 1100px;
   background-color: #fff;
   height: calc(100vh - 60px);
 }

@@ -30,7 +30,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scope>
 .content {
   max-width: 1226px;
   min-width: 420px;

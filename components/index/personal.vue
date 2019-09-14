@@ -10,7 +10,7 @@
       <div class="contact">
         <a href="#" class="weixin">
           <span class="myIcon myIcon-weixin"></span>
-          <img src="@/assets/img/author.jpg" alt="" class="weixin">
+          <img src="@/assets/img/weixin.jpg" alt="" class="weixin">
         </a>
         <a href="https://github.com/zclzone" title="github">
           <span class="myIcon myIcon-github"></span>
