@@ -7,6 +7,15 @@
       <h2>张生</h2>
       <p>孤光自照，肝胆皆冰雪</p>
       <p>Ronnie，江西赣州人，某上市公司全栈工程师</p>
+      <div class="contact">
+        <a href="#" class="weixin">
+          <span class="myIcon myIcon-weixin"></span>
+          <img src="@/assets/img/author.jpg" alt="" class="weixin">
+        </a>
+        <a href="https://github.com/zclzone" title="github">
+          <span class="myIcon myIcon-github"></span>
+        </a>
+      </div>
     </div>
   </div>
 </template>
@@ -17,7 +26,7 @@
   color: #454c52;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
-  height: 350px;
+  height: 370px;
   .bg {
     height: 120px;
     margin-bottom: 50px;
@@ -47,6 +56,29 @@
     color: #909090;
     padding: 0 20px 20px;
     text-align: center;
+  }
+  .contact {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    .myIcon {
+      margin: 0 20px;
+      font-size: 20px;
+    }
+    .weixin {
+      position: relative;
+      &:hover img {
+        display: block;
+      }
+      img {
+        width: 130px;
+        display: none;
+        position: absolute;
+        left: 50%;
+        margin-left: -65px;
+        top: 30px;
+      }
+    }
   }
 }
 </style>

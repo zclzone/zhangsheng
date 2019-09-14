@@ -129,8 +129,8 @@ export default {
         color: #222;
         &.selected {
           color: #895022;
-          transition: all 0.6s;
-          transform: scale(1.05);
+          transition: all 0.8s;
+          // transform: scale(1.05);
           &::after {
             content: "";
             position: absolute;

@@ -57,6 +57,7 @@ module.exports = {
     'element-ui/lib/theme-chalk/index.css',
     '@/assets/scss/reset.scss',
     '@/assets/scss/main.scss',
+    '@/assets/icon/myIcon/iconfont.css',
     'github-markdown-css/github-markdown.css'
   ],
   /*

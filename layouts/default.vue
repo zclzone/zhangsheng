@@ -33,7 +33,7 @@ export default {
 <style lang="scss" scoped>
 .el-main {
   background: rgba(243, 242, 243, 0.5);
-  min-height: 90vh;
+  height: calc(100vh - 150px);
   padding: 20px;
 }
 </style>
