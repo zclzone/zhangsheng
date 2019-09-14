@@ -90,7 +90,7 @@ module.exports = {
     baseURL:
       process.env.NODE_ENV === 'development'
         ? 'http://localhost:3000'
-        : 'http://zclzone.com/zhangsheng'
+        : 'https://zclzone.com/zhangsheng'
   },
   /*
    ** Build configuration
