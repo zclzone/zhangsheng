@@ -15,7 +15,6 @@ import Personal from '@/components/index/personal';
 export default {
   async asyncData (app) {
     let rst = await app.$axios.get('/data/articles.json');
-    console.log(rst);
     for (const item of rst.data.articles) {
       item['img'] = require(`@/assets/img/logo_${item.type.toLowerCase()}.png`)
     }
