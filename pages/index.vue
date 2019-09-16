@@ -1,7 +1,8 @@
 <template>
   <el-row :gutter="0" class="content">
     <el-col :span="18">
-      <List :articles="articles" />
+      <!-- <List :articles="articles" /> -->
+      <List :articles="$store.state.articles" />
     </el-col>
     <el-col :span="6" class="personal">
       <Personal />
@@ -13,14 +14,17 @@
 import List from '@/components/index/list';
 import Personal from '@/components/index/personal';
 export default {
-  async asyncData (app) {
-    let rst = await app.$axios.get('/data/articles.json');
-    for (const item of rst.data.articles) {
-      item['img'] = require(`@/assets/img/logo_${item.type.toLowerCase()}.png`)
-    }
-    return {
-      articles: rst.data.articles
-    }
+  // async asyncData (app) {
+  // let rst = await app.$axios.get('/data/articles.json');
+  // for (const item of rst.data.articles) {
+  //   item['img'] = require(`@/assets/img/logo_${item.type.toLowerCase()}.png`)
+  // }
+  // return {
+  //   articles: rst.data.articles
+  // }
+  // },
+  async fetch ({ store, params }) {
+    await store.dispatch('getArticles');
   },
   components: {
     List,

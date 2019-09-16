@@ -1,24 +1,34 @@
 <template>
   <div class="article">
     <div class="article-container">
-      <div class="markdown-body" v-html="article.content_html"></div>
+      <!-- <div class="markdown-body" v-html="article.content_html"></div> -->
+      <div class="markdown-body" v-html="$store.state.article.content_html">
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  data () {
-    return {
-      article: {}
-    }
+  async fetch ({ store, route }) {
+    await store.dispatch('getArticle', route.query.id);
   },
-  created () {
-    this.$axios.get('/data/articles.json').then(rst => {
-      this.article = rst.data.articles.find((item) => {
-        return item._id == this.$route.query.id;
-      });
-    })
+  // data () {
+  //   return {
+  //     // article: { content_html: '' }
+  //   }
+  // },
+  mounted () {
+    // this.$axios.get('/data/articles.json').then(rst => {
+    //   this.article = rst.data.articles.find((item) => {
+    //     return item._id == this.$route.query.id;
+    //   });
+    // });
+
+
+    // this.article = this.$store.state.articles.find((item) => {
+    //   return item._id == this.$route.query.id;
+    // });
   }
 }
 </script>
