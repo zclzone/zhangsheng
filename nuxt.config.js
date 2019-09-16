@@ -42,7 +42,7 @@ module.exports = {
         type: 'image/x-icon',
         href: `${
           process.env.NODE_ENV === 'development' ? '' : '/zhangsheng'
-        }/favicon.ico`
+          }/favicon.ico`
       }
     ]
   },
@@ -54,10 +54,10 @@ module.exports = {
    ** Global CSS
    */
   css: [
-    'element-ui/lib/theme-chalk/index.css',
     '@/assets/scss/reset.scss',
-    '@/assets/scss/main.scss',
     '@/assets/icon/myIcon/iconfont.css',
+    'element-ui/lib/theme-chalk/index.css',
+    '@/assets/scss/main.scss',
     'github-markdown-css/github-markdown.css'
   ],
   /*
@@ -100,6 +100,6 @@ module.exports = {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {}
+    extend (config, ctx) { }
   }
 };
