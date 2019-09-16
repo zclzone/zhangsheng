@@ -5,7 +5,6 @@
       <!-- <div class="markdown-body" v-html="$store.state.article.content_html"> -->
     </div>
   </div>
-  </div>
 </template>
 
 <script>
