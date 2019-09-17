@@ -62,6 +62,7 @@ router.get('/publish', function(req, res) {
           introduce: item.introduce,
           type: item.type,
           content_html: item.content_html,
+          content_md: item.content_md,
           clickCount: 99,
           date: item.date
         };

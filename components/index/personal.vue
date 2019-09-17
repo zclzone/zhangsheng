@@ -12,9 +12,12 @@
           <span class="myIcon myIcon-weixin"></span>
           <img src="@/assets/img/weixin.jpg" alt="" class="weixin">
         </a>
-        <a href="https://github.com/zclzone" title="github">
-          <span class="myIcon myIcon-github"></span>
-        </a>
+        <el-tooltip effect="light" content="github" placement="bottom">
+          <a href="https://github.com/zclzone">
+            <span class="myIcon myIcon-github"></span>
+          </a>
+        </el-tooltip>
+
       </div>
     </div>
   </div>

@@ -4,6 +4,9 @@
       <div class="markdown-body" v-html="article.content_html"></div>
       <!-- <div class="markdown-body" v-html="$store.state.article.content_html"> -->
     </div>
+    <el-tooltip class="download" effect="light" content="生成md文件并下载" placement="bottom-end">
+      <el-button icon="el-icon-download" circle @click="download"></el-button>
+    </el-tooltip>
   </div>
 </template>
 
@@ -31,7 +34,24 @@ export default {
     // this.article = this.$store.state.articles.find((item) => {
     //   return item._id == this.$route.query.id;
     // });
-  }
+  },
+  methods: {
+    download () {
+      if (!this.article.content_md) {
+        return;
+      }
+      let data = `${this.article.content_md}\n`;
+      data += `[原文地址：zclzone.com/zhangsheng](https://zclzone.com/zhangsheng/article/?id=${this.article._id})\n`;
+      data += `[更佳阅读体验：zclzone.gitee.io/zhangsheng](https://zclzone.gitee.io/zhangsheng/article/?id=${this.article._id})\n`;
+      let blob = new Blob([data], { type: "application/octet-stream", });
+      var downloadA = document.createElement('a');
+      downloadA.href = window.URL.createObjectURL(blob);
+      downloadA.download = `${this.article.title}.md`;
+      downloadA.click();
+      //释放内存
+      window.URL.revokeObjectURL(downloadA.href);
+    }
+  },
 }
 </script>
 
@@ -42,6 +62,7 @@ export default {
   width: 100%;
   margin: 0 auto;
   padding: 0;
+  position: relative;
   .article-container {
     width: 1226px;
     padding: 50px;
@@ -58,6 +79,20 @@ export default {
       position: absolute;
       left: 0;
       top: 2px;
+    }
+  }
+  .download {
+    position: absolute;
+    font-size: 14px;
+    padding: 5px;
+    right: 45px;
+    top: 20px;
+    transition: 0.5s;
+    color: #7d4721;
+    border: 1px solid #7d4721;
+    &:hover {
+      background: #fff;
+      transform: scale(1.2);
     }
   }
 }
