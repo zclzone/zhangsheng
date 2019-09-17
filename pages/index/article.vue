@@ -40,7 +40,7 @@ export default {
       if (!this.article.content_md) {
         return;
       }
-      let data = `${this.article.content_md}\n`;
+      let data = `${this.article.content_md}\n\n`;
       data += `[原文地址：zclzone.com/zhangsheng](https://zclzone.com/zhangsheng/article/?id=${this.article._id})\n`;
       data += `[更佳阅读体验：zclzone.gitee.io/zhangsheng](https://zclzone.gitee.io/zhangsheng/article/?id=${this.article._id})\n`;
       let blob = new Blob([data], { type: "application/octet-stream", });
