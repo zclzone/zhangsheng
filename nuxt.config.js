@@ -42,7 +42,7 @@ module.exports = {
         type: 'image/x-icon',
         href: `${
           process.env.NODE_ENV === 'development' ? '' : '/zhangsheng'
-          }/favicon.ico`
+        }/favicon.ico`
       }
     ]
   },
@@ -66,6 +66,7 @@ module.exports = {
   plugins: [
     '@/plugins/element-ui',
     '@/plugins/filter',
+    '@/plugins/md-export',
     {
       src: '@/plugins/mavon-editor',
       ssr: false
@@ -100,6 +101,6 @@ module.exports = {
     /*
      ** You can extend webpack config here
      */
-    extend (config, ctx) { }
+    extend(config, ctx) {}
   }
 };

@@ -45,12 +45,10 @@ export default {
       data += `[原文地址：zclzone.com/zhangsheng](https://zclzone.com/zhangsheng/article/?id=${this.article._id})\n`;
       data += `[更佳阅读体验：zclzone.gitee.io/zhangsheng](https://zclzone.gitee.io/zhangsheng/article/?id=${this.article._id})\n`;
       let blob = new Blob([data], { type: "application/octet-stream", });
-      var downloadA = document.createElement('a');
-      downloadA.href = window.URL.createObjectURL(blob);
-      downloadA.download = `${this.article.title}.md`;
-      downloadA.click();
-      //释放内存
-      window.URL.revokeObjectURL(downloadA.href);
+      this.$mdExport({
+        mdData: data,
+        fileName: this.article.title
+      });
     }
   },
 }
