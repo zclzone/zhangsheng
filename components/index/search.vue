@@ -23,8 +23,9 @@
       </div>
     </el-col>
     <el-col :span="6" class="wrapper">
-      <el-input v-model="keywords" placeholder="搜索" @keyup.enter.native="search" />
-      <button class="el-button el-button--primary" @click="search"><i class="el-icon-search" /></button>
+      <!-- <i class="el-icon-search" /> -->
+      <el-input v-model="keywords" placeholder="搜索（Enter）" @keyup.enter.native="search" class="el-icon-search" />
+      <!-- <button class="el-button el-button--primary" @click="search"><i class="el-icon-search" /></button> -->
     </el-col>
   </el-row>
 </template>
@@ -197,32 +198,34 @@ export default {
   .wrapper {
     border: 1px solid #895022;
     // float: right;
-    border-radius: 4px;
-    width: 300px;
-    right: 0;
-    box-sizing: border-box;
+    border-radius: 6px;
+    box-shadow: 0 0 4px rgba(125, 71, 33, 0.4);
+    width: 280px;
+    right: 15px;
     position: absolute;
     white-space: nowrap;
+    color: #895022;
+    padding-left: 15px;
     .el-input {
-      width: 210px;
+      width: 240px;
       input {
         border: 0;
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
       }
     }
-    .el-button {
-      width: 88px;
-      border: none;
-      background: #895022;
-      font-size: 16px;
-      border-top-left-radius: 0;
-      border-bottom-left-radius: 0;
-      vertical-align: -1px;
-      i {
-        font-weight: bold;
-      }
-    }
+    // .el-button {
+    //   width: 88px;
+    //   border: none;
+    //   background: #895022;
+    //   font-size: 16px;
+    //   border-top-left-radius: 0;
+    //   border-bottom-left-radius: 0;
+    //   vertical-align: -1px;
+    //   i {
+    //     font-weight: bold;
+    //   }
+    // }
   }
 }
 </style>
