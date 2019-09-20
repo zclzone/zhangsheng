@@ -23,8 +23,8 @@
       </div>
     </el-col>
     <el-col :span="6" class="wrapper">
-      <el-input v-model="search" placeholder="搜索" />
-      <button class="el-button el-button--primary"><i class="el-icon-search" /></button>
+      <el-input v-model="keywords" placeholder="搜索" @keyup.enter.native="search" />
+      <button class="el-button el-button--primary" @click="search"><i class="el-icon-search" /></button>
     </el-col>
   </el-row>
 </template>
@@ -33,7 +33,7 @@
 export default {
   data () {
     return {
-      search: '',
+      keywords: '',
       selected: '',
       menus: ['前端', '后端', 'DB', '工具'],
       mains: [
@@ -76,6 +76,13 @@ export default {
     },
     toHome () {
       this.$store.dispatch('change_type', '');
+      this.$store.dispatch('change_keywords', '');
+      this.$router.push('/');
+      this.keywords = '';
+    },
+    search () {
+      this.$store.dispatch('change_type', '');
+      this.$store.dispatch('change_keywords', this.keywords);
       this.$router.push('/');
     }
   }

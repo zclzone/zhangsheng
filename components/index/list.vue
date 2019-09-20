@@ -1,16 +1,15 @@
 <template>
   <div class="list">
-    <div class="list-title"
-      v-if="articles.filter(value=> $store.state.articleType ? value.type == $store.state.articleType : true).length > 0">
+    <div class="list-title" v-if="filterArticles.length > 0">
       文章列表
     </div>
-    <el-divider
-      v-else-if="$store.state.articleType != '' && articles.filter(value=> $store.state.articleType ? value.type == $store.state.articleType : true).length === 0">
+    <el-divider v-else-if="$store.state.articleType">
       暂无 <span style="color:#895022;font-weight:600;">{{$store.state.articleType}}</span> 类文章
     </el-divider>
-    <div class="article-item"
-      v-for="item in articles.filter(value=> $store.state.articleType ? value.type == $store.state.articleType : true)"
-      :key="item.id">
+    <el-divider v-else-if="$store.state.articleKeyWords">
+      暂无 <span style="color:#895022;font-weight:600;">{{$store.state.articleKeyWords}}</span> 相关文章
+    </el-divider>
+    <div class="article-item" v-for="item in filterArticles" :key="item.id">
       <div class="logo">
         <img :src="item.img" alt="">
       </div>
@@ -41,6 +40,23 @@ export default {
     articles: {
       type: Array,
       default: []
+    }
+  },
+  computed: {
+    filterArticles: function () {
+      let rstArticles = [];
+      for (const item of this.articles) {
+        if (
+          (item.title.toLowerCase().indexOf(this.$store.state.articleKeyWords) != -1 ||
+            item.introduce.toLowerCase().indexOf(this.$store.state.articleKeyWords) != -1 ||
+            item.type.toLowerCase().indexOf(this.$store.state.articleKeyWords) != -1 ||
+            !this.$store.state.articleKeyWords) &&
+          (item.type == this.$store.state.articleType || !this.$store.state.articleType)
+        ) {
+          rstArticles.push(item);
+        }
+      }
+      return rstArticles;
     }
   }
 }

@@ -3,7 +3,6 @@ const router = express.Router();
 const article = require('../model/article');
 const fs = require('fs');
 const path = require('path');
-const moment = require('moment');
 
 let dataPath = path.join(__dirname, '../../static/data/');
 
