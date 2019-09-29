@@ -4,9 +4,7 @@
       <div class="markdown-body" v-html="article.content_html"></div>
       <!-- <div class="markdown-body" v-html="$store.state.article.content_html"> -->
     </div>
-    <el-tooltip class="download" effect="light" content="生成md文件并下载" placement="bottom-end">
-      <el-button icon="el-icon-download" circle @click="download"></el-button>
-    </el-tooltip>
+    <el-button icon="el-icon-download" circle @click="download" title="生成md文件并下载"></el-button>
   </div>
 </template>
 
@@ -80,7 +78,7 @@ export default {
       top: 2px;
     }
   }
-  .download {
+  .is-circle {
     position: absolute;
     font-size: 14px;
     padding: 5px;
@@ -88,10 +86,9 @@ export default {
     top: 20px;
     transition: 0.5s;
     color: #7d4721;
-    border: 1px solid #7d4721;
     &:hover {
+      border: 1px solid #7d4721;
       background: #fff;
-      transform: scale(1.2);
     }
   }
 }

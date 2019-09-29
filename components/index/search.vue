@@ -196,16 +196,19 @@ export default {
     }
   }
   .wrapper {
-    border: 1px solid #895022;
+    border: 1px solid #ccc;
     // float: right;
-    border-radius: 6px;
-    box-shadow: 0 0 4px rgba(125, 71, 33, 0.4);
+    border-radius: 5px;
     width: 280px;
     right: 15px;
     position: absolute;
     white-space: nowrap;
     color: #895022;
     padding-left: 15px;
+    &:hover {
+      border: 1px solid #895022;
+      box-shadow: 0 0 4px rgba(125, 71, 33, 0.5);
+    }
     .el-input {
       width: 240px;
       input {

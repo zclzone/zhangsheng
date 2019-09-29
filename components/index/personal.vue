@@ -5,8 +5,8 @@
         <img src="@/assets/img/author.jpg" alt="">
       </div>
       <h2>张生</h2>
-      <p>孤光自照，肝胆皆冰雪</p>
       <p>Ronnie，江西赣州人，某上市公司全栈工程师</p>
+      <p>怕什么真理无穷<br />进一寸有进一寸的惊喜~</p>
       <div class="contact">
         <a href="#" class="weixin">
           <span class="myIcon myIcon-weixin"></span>
@@ -29,25 +29,25 @@
   color: #454c52;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
-  height: 370px;
+  height: 390px;
   .bg {
     height: 120px;
     margin-bottom: 50px;
     position: relative;
-    background-image: linear-gradient(to bottom, #454c52, #a8a8a8);
+    background-image: linear-gradient(to bottom, #454c52, #c9d1d4);
     img {
       width: 130px;
       height: 130px;
-      border: 3px solid #fff;
+      border: 3px solid #e3d9d2;
       border-radius: 50%;
       position: absolute;
       left: 0;
       right: 0;
       margin: auto;
       bottom: -40px;
-      transition: all 2s;
+      transition: all 0.8s;
       &:hover {
-        transform: rotate(360deg);
+        transform: scale(1.08);
       }
     }
   }
