@@ -205,7 +205,7 @@ export default {
     white-space: nowrap;
     color: #895022;
     padding-left: 15px;
-    &:hover {
+    &:focus-within {
       border: 1px solid #895022;
       box-shadow: 0 0 4px rgba(125, 71, 33, 0.5);
     }
