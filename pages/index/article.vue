@@ -38,10 +38,10 @@ export default {
       if (!this.article.content_md) {
         return;
       }
-      let data = `${this.article.content_md}\n\n`;
-      data += `^转载请带上以下内容^\n`
-      data += `[原文地址：zclzone.com/zhangsheng](https://zclzone.com/zhangsheng/article/?id=${this.article._id})\n`;
-      data += `[更佳阅读体验：zclzone.gitee.io/zhangsheng](https://zclzone.gitee.io/zhangsheng/article/?id=${this.article._id})\n`;
+      let data = '';
+      let dataPre = `[原文地址：zclzone.com/zhangsheng](https://zclzone.com/zhangsheng/article/?id=${this.article._id})\n\n`
+      dataPre += `[更佳阅读体验：zclzone.gitee.io/zhangsheng](https://zclzone.gitee.io/zhangsheng/article/?id=${this.article._id})\n\n`
+      data = dataPre + this.article.content_md;
       let blob = new Blob([data], { type: "application/octet-stream", });
       this.$mdExport({
         mdData: data,
