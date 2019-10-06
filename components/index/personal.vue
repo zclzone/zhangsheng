@@ -2,7 +2,9 @@
   <div>
     <div class="name-card">
       <div class="bg">
-        <img src="@/assets/img/author.jpg" alt="">
+        <a href="https://github.com/zclzone" target="_blank">
+          <img src="@/assets/img/author.jpg" alt="">
+        </a>
       </div>
       <h2>张生</h2>
       <p>Ronnie，江西赣州人，某上市公司全栈工程师</p>
