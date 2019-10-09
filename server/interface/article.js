@@ -52,31 +52,68 @@ router.post('/add', function(req, res) {
 router.get('/publish', function(req, res) {
   article.find(function(err, data) {
     if (!err) {
-      let articles = [];
+      // let articles = [];
+      // let article = {};
+      // for (let item of data) {
+      //   article = {
+      //     _id: item._id,
+      //     title: item.title,
+      //     introduce: item.introduce,
+      //     type: item.type,
+      //     content_html: item.content_html,
+      //     content_md: item.content_md,
+      //     clickCount: 99,
+      //     date: item.date
+      //   };
+      //   articles.push(article);
+      // }
+
+      // let articlesFile = JSON.stringify({
+      //   articles: articles
+      // });
+
+      // fs.writeFile(dataPath + 'articles.json', articlesFile, function(err) {
+      //   if (!err) {
+      //     res.send({ status: 0, msg: '发布成功' });
+      //   }
+      // });
+
+      let articleList = [];
+      for (let item of data) {
+        articleList.push({
+          _id: item._id,
+          title: item.title,
+          introduce: item.introduce,
+          type: item.type,
+          clickCount: 99,
+          date: item.date
+        });
+      }
+
+      let listFile = JSON.stringify({ articleList: articleList }, null, 2);
+
+      //同步写入
+      fs.writeFileSync(dataPath + 'articleList.json', listFile);
+
+      //将每一篇文章发布成单独的json文件，提高请求速度
       let article = {};
+      let articleFile = null;
       for (let item of data) {
         article = {
           _id: item._id,
           title: item.title,
-          introduce: item.introduce,
           type: item.type,
           content_html: item.content_html,
           content_md: item.content_md,
           clickCount: 99,
           date: item.date
         };
-        articles.push(article);
+        articleFile = JSON.stringify({ article: article }, null, 2);
+
+        //同步写入
+        fs.writeFileSync(dataPath + `${article._id}.json`, articleFile);
       }
-
-      let articlesFile = JSON.stringify({
-        articles: articles
-      });
-
-      fs.writeFile(dataPath + 'articles.json', articlesFile, function(err) {
-        if (!err) {
-          res.send({ status: 0, msg: '发布成功' });
-        }
-      });
+      res.send({ status: 0, msg: '发布成功' });
     }
   });
 });

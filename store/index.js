@@ -8,7 +8,7 @@ export default () =>
     state: {
       articleType: '',
       articleKeyWords: '',
-      articles: [],
+      articleList: [],
       article: {}
     },
     mutations: {
@@ -18,8 +18,8 @@ export default () =>
       change_article_keywords(state, keywords) {
         state.articleKeyWords = keywords;
       },
-      setArticles(state, data) {
-        state.articles = data || [];
+      setArticleList(state, data) {
+        state.articleList = data || [];
       },
       setArticle(state, data) {
         state.article = data || {};
@@ -32,14 +32,14 @@ export default () =>
       change_keywords({ commit }, keywords) {
         commit('change_article_keywords', keywords);
       },
-      async getArticles({ commit }) {
-        let rst = await this.$axios.get('/data/articles.json');
-        for (const item of rst.data.articles) {
+      async getArticleList({ commit }) {
+        let rst = await this.$axios.get('/data/articleList.json');
+        for (const item of rst.data.articleList) {
           item[
             'img'
           ] = require(`@/assets/img/logo_${item.type.toLowerCase()}.png`);
         }
-        commit('setArticles', rst.data.articles);
+        commit('setArticleList', rst.data.articleList);
       },
       async getArticle({ commit }, id) {
         let rst = await this.$axios.get('/data/articles.json');

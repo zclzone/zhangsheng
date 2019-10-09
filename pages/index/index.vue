@@ -2,7 +2,7 @@
   <el-row :gutter="0" class="content">
     <el-col :span="18">
       <!-- <List :articles="articles" /> -->
-      <List :articles="$store.state.articles" />
+      <List :articleList="$store.state.articleList" />
     </el-col>
     <el-col :span="6" class="personal">
       <Personal />
@@ -24,7 +24,7 @@ export default {
   // }
   // },
   async fetch ({ store, params }) {
-    await store.dispatch('getArticles');
+    await store.dispatch('getArticleList');
   },
   components: {
     List,

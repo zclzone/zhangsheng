@@ -1,7 +1,7 @@
 <template>
   <el-row :gutter="0" class="header">
     <el-col :span="4">
-      <span class="brand">张生的官方博客</span>
+      <span class="brand">张生博客</span>
     </el-col>
     <el-col :span="6">
       <ul class="top-tab">

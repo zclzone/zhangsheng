@@ -37,26 +37,20 @@
 <script>
 export default {
   props: {
-    articles: {
+    articleList: {
       type: Array,
       default: []
     }
   },
   computed: {
     filterArticles: function () {
-      let rstArticles = [];
-      for (const item of this.articles) {
-        if (
-          (item.title.toLowerCase().indexOf(this.$store.state.articleKeyWords.toLowerCase()) != -1 ||
-            item.introduce.toLowerCase().indexOf(this.$store.state.articleKeyWords.toLowerCase()) != -1 ||
-            item.type.toLowerCase().indexOf(this.$store.state.articleKeyWords.toLowerCase()) != -1 ||
-            !this.$store.state.articleKeyWords) &&
+      return this.articleList.filter(item => {
+        return (item.title.toLowerCase().indexOf(this.$store.state.articleKeyWords.toLowerCase()) != -1 ||
+          item.introduce.toLowerCase().indexOf(this.$store.state.articleKeyWords.toLowerCase()) != -1 ||
+          item.type.toLowerCase().indexOf(this.$store.state.articleKeyWords.toLowerCase()) != -1 ||
+          !this.$store.state.articleKeyWords) &&
           (item.type.toLowerCase() == this.$store.state.articleType.toLowerCase() || !this.$store.state.articleType)
-        ) {
-          rstArticles.push(item);
-        }
-      }
-      return rstArticles;
+      });
     }
   }
 }

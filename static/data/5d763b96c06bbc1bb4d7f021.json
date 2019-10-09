@@ -1,0 +1,11 @@
+{
+  "article": {
+    "_id": "5d763b96c06bbc1bb4d7f021",
+    "title": "Bootstrap3 常用的类",
+    "type": "Css",
+    "content_html": "<h1><a id=\"centerBootstrap3_center_0\"></a><center>Bootstrap3 常用的类</center></h1>\n<h4><a id=\"_2\"></a>布局容器</h4>\n<blockquote>\n<p>container 响应式容器</p>\n</blockquote>\n<blockquote>\n<p>container-fluid 流式容器</p>\n</blockquote>\n<h4><a id=\"_8\"></a>栅格系统</h4>\n<!-- more -->\n<blockquote>\n<p>row 行</p>\n</blockquote>\n<blockquote>\n<p>col-*-* 列</p>\n</blockquote>\n<pre><code class=\"lang-\">实例 col-md-3\n第一个参数:\n  lg 大屏：大屏及以上生效\n  md 中屏：中屏及以上生效\n  sm 小屏：小屏及以上生效\n  xs 超小屏：超小屏及以上生效\n第二个参数:Row 默认会把一行分成 12 等份列，这里第二个参数表示的是当前元素占 12 等份当中的几份\n</code></pre>\n<blockquote>\n<p>col-xs-offset-4 偏移，往右偏移四等份</p>\n</blockquote>\n<blockquote>\n<p>col-xs-push-* 排序 往后推几份<br />\ncol-xs-pull-* 排序 往前拉几份</p>\n</blockquote>\n<blockquote>\n<p>hidden-* 控制在某种屏幕下隐藏，其他屏幕可见，可选参数 lg、md、sm、xs</p>\n</blockquote>\n<blockquote>\n<p>pull-left 左浮动<br />\npull-right 右浮动</p>\n</blockquote>\n<blockquote>\n<p>text-right 文字右对齐<br />\ntext-left 文字左对齐<br />\ntext-center 居中</p>\n</blockquote>\n",
+    "content_md": "# <center>Bootstrap3 常用的类</center>\n\n#### 布局容器\n\n> container 响应式容器\n\n> container-fluid 流式容器\n\n#### 栅格系统\n\n<!-- more -->\n\n> row 行\n\n> col-\\*-\\* 列\n\n```\n实例 col-md-3\n第一个参数:\n  lg 大屏：大屏及以上生效\n  md 中屏：中屏及以上生效\n  sm 小屏：小屏及以上生效\n  xs 超小屏：超小屏及以上生效\n第二个参数:Row 默认会把一行分成 12 等份列，这里第二个参数表示的是当前元素占 12 等份当中的几份\n```\n\n> col-xs-offset-4 偏移，往右偏移四等份\n\n> col-xs-push-\\* 排序 往后推几份\n> col-xs-pull-\\* 排序 往前拉几份\n\n> hidden-\\* 控制在某种屏幕下隐藏，其他屏幕可见，可选参数 lg、md、sm、xs\n\n> pull-left 左浮动\n> pull-right 右浮动\n\n> text-right 文字右对齐\n> text-left 文字左对齐\n> text-center 居中",
+    "clickCount": 99,
+    "date": "2019-09-17T14:19:21.931Z"
+  }
+}

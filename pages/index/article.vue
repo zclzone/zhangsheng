@@ -19,8 +19,10 @@ export default {
     }
   },
   async mounted () {
-    const { data } = await this.$axios.get('/data/articles.json');
-    this.article = data.articles.find(item => item._id == this.$route.query.id);
+    // const { data } = await this.$axios.get('/data/articles.json');
+    // this.article = data.articles.find(item => item._id == this.$route.query.id);
+    let { data } = await this.$axios.get(`/data/${this.$route.query.id}.json`);
+    this.article = data.article;
 
     // this.$axios.get('/data/articles.json').then(rst => {
     //   this.article = rst.data.articles.find((item) => {
