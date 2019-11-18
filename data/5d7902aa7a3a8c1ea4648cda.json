@@ -1,0 +1,11 @@
+{
+  "article": {
+    "_id": "5d7902aa7a3a8c1ea4648cda",
+    "title": "CSS学习-标签显示模式",
+    "type": "Css",
+    "content_html": "<h1><a id=\"centerCSScenter_0\"></a><center>CSS学习-标签显示模式</center></h1>\n<h3><a id=\"_2\"></a>块级元素</h3>\n<p>常见的块级元素有 h1 ~ h6 div ul ol li等，其中div 是最典型的块元素</p>\n<blockquote>\n<p>特点：</p>\n</blockquote>\n<ul>\n<li>总是从新行开始</li>\n<li>高度、行高、以及内外边距都可以控制</li>\n<li>宽度默认是容器的100%</li>\n<li>可以容纳行内元素和其他块元素</li>\n</ul>\n<h3><a id=\"_11\"></a>行内元素</h3>\n<p>常见的行内元素有 a strong b em i del s ins u span等，其中span 是最典型的行内元素</p>\n<blockquote>\n<p>特点：</p>\n</blockquote>\n<ul>\n<li>和相邻<em>行内元素</em>在同一行</li>\n<li>高、宽无效，但可设置水平方向和内外边距，垂直方向无效</li>\n<li>宽度默认是其内容本身的宽度</li>\n<li>只能容纳文本或其他行内元素（a特殊）</li>\n</ul>\n<blockquote>\n<p>注意:</p>\n</blockquote>\n<ol>\n<li>只有文字才能组成段落，因此*** p 里面不能放块级元素*** ，同理h1 ~ h6 dt等都是文字块级元素，同样不能放块级元素</li>\n<li>链接里边不能再放链接（a）</li>\n</ol>\n<h3><a id=\"inlineblock_23\"></a>行内块元素（inline-block）</h3>\n<p>在行内元素中有几个特殊的标签— img 、input 、 td ,可以对其设置宽高和对齐属性</p>\n<blockquote>\n<p>特点：</p>\n</blockquote>\n<ul>\n<li>和相邻行内元素（行内块）在同一行，但是之间会有空白缝隙</li>\n<li>宽度默认是其内容本身的宽度</li>\n<li>高度、行高、内外边距都可以控制</li>\n</ul>\n<h3><a id=\"display_31\"></a>标签显示模式转换（display）</h3>\n<p>块转行内：display: inline;<br />\n行内转块：display: block;<br />\n块、行内元素转换为行内块：display: inline-block;</p>\n",
+    "content_md": "# <center>CSS学习-标签显示模式</center>\n\n### 块级元素\n常见的块级元素有 h1 ~ h6 div ul ol li等，其中div 是最典型的块元素\n \n > 特点：\n - 总是从新行开始\n -  高度、行高、以及内外边距都可以控制\n -  宽度默认是容器的100%\n -  可以容纳行内元素和其他块元素\n\n### 行内元素\n常见的行内元素有 a strong b em i del s ins u span等，其中span 是最典型的行内元素\n \n > 特点：\n - 和相邻*行内元素*在同一行\n -  高、宽无效，但可设置水平方向和内外边距，垂直方向无效\n -  宽度默认是其内容本身的宽度\n -  只能容纳文本或其他行内元素（a特殊）\n >注意:\n 1. 只有文字才能组成段落，因此*** p 里面不能放块级元素*** ，同理h1 ~ h6 dt等都是文字块级元素，同样不能放块级元素\n 2. 链接里边不能再放链接（a）\n\n### 行内块元素（inline-block）\n在行内元素中有几个特殊的标签--- img 、input 、 td ,可以对其设置宽高和对齐属性\n \n > 特点：\n - 和相邻行内元素（行内块）在同一行，但是之间会有空白缝隙\n -  宽度默认是其内容本身的宽度\n -  高度、行高、内外边距都可以控制\n\n### 标签显示模式转换（display）\n块转行内：display: inline;\n行内转块：display: block;\n块、行内元素转换为行内块：display: inline-block;",
+    "clickCount": 99,
+    "date": "2019-09-11T14:40:18.621Z"
+  }
+}
